@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: drone-telemetry-api
+    runtime: python
+    plan: free
+    rootDir: simulator
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn simulator:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.5"
